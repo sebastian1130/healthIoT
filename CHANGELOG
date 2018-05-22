@@ -1,0 +1,1 @@
+Se crea el archivo CheckRole y se añade en Kernel.php. En el archivo web.php se añade la supuesta funcionalidad que permite el ingreso de admin o usuario normal. No funciona.

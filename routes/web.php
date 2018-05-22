@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', 'UserController');
+
+Route::group(['middleware' => 'role'],function(){
+  Route::resource('users', 'UserController')->middleware('auth', 'role:1');
+});
+
 Route::resource('sistemas', 'SistemaController');
 Route::resource('medicions', 'MedicionController');
 
