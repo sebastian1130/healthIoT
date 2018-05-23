@@ -17,9 +17,9 @@ class CheckRole
 
     public function handle($request, Closure $next)
     {
-      $userRol = User::All();
+      //$userRol = User::All();
 
-      if($request->user['rol']== 1)
+      if(auth()->user()->isAdmin())
       {
         return $next($request);
       }

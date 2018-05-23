@@ -39,4 +39,9 @@ class User extends Authenticatable
     public function sistemas(){
       return $this->hasMany('App/sistema');
     }
+    const DEFAULT_TYPE = 2;
+    const ADMIN_TYPE = 1;
+    public function isAdmin()    {
+    return $this->rol = 1;
+}
 }

@@ -16,16 +16,19 @@ Route::get('/', function () {
 });
 ////////Esto tiene lo del admin
 //
-Route::get('/privateWelcome','SiteController@privateWelcome');
+Route::get('adminPages/adminWelcome','SiteController@privateWelcome')->middleware('isAdmin')->name('privateWelcome');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 
 Route::group(['middleware'=>'isAdmin'], function(){
-  Route::resource('users', 'UserController');
-  Route::resource('sistemas', 'SistemaController');
-  Route::resource('medicions', 'MedicionController');
+
 });
+// Route::get('users', 'UserController@index')->middleware('isAdmin')->name('home');
+
+Route::resource('users', 'UserController');
+Route::resource('sistemas', 'SistemaController');
+Route::resource('medicions', 'MedicionController');
 
 
 

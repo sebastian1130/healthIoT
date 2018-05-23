@@ -1,3 +1,4 @@
 Se crea el archivo CheckRole y se añade en Kernel.php. En el archivo web.php se añade la supuesta funcionalidad que permite el ingreso de admin o usuario normal. No funciona.
 Aparentemente funciona el admin-detection, pero no de forma correcta. Revisar
-la manera en que se está direccionando.
+la manera en que se está direccionando. Aparentemente, en las rutas, no me permite
+poner a User dentro de la autenticación del admin.
