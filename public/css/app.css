@@ -61,3 +61,8 @@
   float: right;
   width: 40%;
 }
+
+div.contenedor .forma1 .form-group{
+  width: 65%;
+  padding: 3px;
+}

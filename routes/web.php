@@ -16,21 +16,22 @@ Route::get('/', function () {
 });
 ////////Esto tiene lo del admin
 //
-// Route::get('privateWelcome','SiteController@privateWelcome');
-//
-// Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home')->middleware('role');
-//
-// Route::group(['middleware' => 'role'],function(){
-//   Route::resource('users', 'UserController');
-// });
-// Route::resource('sistemas', 'SistemaController');
-// Route::resource('medicions', 'MedicionController');
-
+Route::get('/privateWelcome','SiteController@privateWelcome');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 
-Route::resource('users', 'UserController');
-Route::resource('sistemas', 'SistemaController');
-Route::resource('medicions', 'MedicionController');
+Route::group(['middleware'=>'isAdmin'], function(){
+  Route::resource('users', 'UserController');
+  Route::resource('sistemas', 'SistemaController');
+  Route::resource('medicions', 'MedicionController');
+});
+
+
+
+// Auth::routes();
+// Route::get('/home', 'HomeController@index');
+//
+// Route::resource('users', 'UserController');
+// Route::resource('sistemas', 'SistemaController');
+// Route::resource('medicions', 'MedicionController');

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\User;
-echo 'hola';
+
 class CheckRole
 {
     /**
@@ -17,9 +17,9 @@ class CheckRole
 
     public function handle($request, Closure $next)
     {
-      $userRol = User::find('rol');
+      $userRol = User::All();
 
-      if($userRol == 1)
+      if($request->user['rol']== 1)
       {
         return $next($request);
       }
