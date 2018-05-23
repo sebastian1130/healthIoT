@@ -83,8 +83,17 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('users.create') }}">Registrar Usuario</a>
-                    <a href="{{ route('login') }}">Inicia sesión</a>
+                    <a href="{{ route('users.create') }}">Crear usuario</a>
+                    <a href="{{ route('users.index') }}">Listar usuarios</a>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                        Cerrar sesión
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                     <a href="https://github.com/sebastian1130/healthIoT">GitHub</a>
                     <!-- <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->

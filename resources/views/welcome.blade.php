@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('users.create') }}">Registrar Usuario</a>
+                    <a href="{{ route('register') }}">Registrar Usuario</a>
                     <a href="{{ route('login') }}">Inicia sesión</a>
                     <a href="https://github.com/sebastian1130/healthIoT">GitHub</a>
                     <!-- <a href="https://forge.laravel.com">Forge</a>

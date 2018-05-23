@@ -14,25 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+////////Esto tiene lo del admin
+//
+// Route::get('privateWelcome','SiteController@privateWelcome');
+//
+// Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home')->middleware('role');
+//
+// Route::group(['middleware' => 'role'],function(){
+//   Route::resource('users', 'UserController');
+// });
+// Route::resource('sistemas', 'SistemaController');
+// Route::resource('medicions', 'MedicionController');
 
-
-Route::group(['middleware' => 'role'],function(){
-  Route::resource('users', 'UserController')->middleware('auth', 'role:1');
-});
-
-Route::resource('sistemas', 'SistemaController');
-Route::resource('medicions', 'MedicionController');
-
-///////SE AÑADEN ESTAS LÍNEAS PARA INFORMAR QUE SE VAN A UTILIZAR ESTOS CONTROLLERS.....
-
-/******
-POR RECOMENDACIÓN SE DEBE UTILIZAR LA TABLA USERS QUE VIENE POR DEFECTO, SE LE PUEDE AGREGAR LO QUE SE NECESITE, PERO NO
-SE LE DEBE QUITAR NADA
-
-
-
-******/
 
 Auth::routes();
+Route::get('/home', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users', 'UserController');
+Route::resource('sistemas', 'SistemaController');
+Route::resource('medicions', 'MedicionController');
