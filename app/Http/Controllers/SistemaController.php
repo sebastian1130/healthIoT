@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\sistema;
+use Session;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class SistemaController extends Controller
 {

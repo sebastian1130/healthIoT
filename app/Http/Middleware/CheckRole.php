@@ -19,9 +19,10 @@ class CheckRole
     {
       //$userRol = User::All();
 
-      if(auth()->user()->isAdmin())
+      if($request->user()->rol==1)
       {
         return $next($request);
+        // return view('adminPages/adminWelcome');
       }
       return redirect('/');
     }

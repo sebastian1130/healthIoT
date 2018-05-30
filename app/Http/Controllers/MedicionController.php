@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\medicion;
+use Session;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class MedicionController extends Controller
 {

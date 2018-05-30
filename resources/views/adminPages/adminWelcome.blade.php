@@ -94,7 +94,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-                    <a href="https://github.com/sebastian1130/healthIoT">GitHub</a>
+                    <a href="https://github.com/sebastian1130/healthIoT" target="_blank">GitHub</a>
                     <!-- <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>

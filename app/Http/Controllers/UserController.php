@@ -104,9 +104,9 @@ class UserController extends Controller
         $user=User::findOrFail($id);
         $this->validate($request, [
           'name' => 'required | string',
-          'apellidos' => 'required | string',
+          'apellidos' => 'required | nullable | string',
           'email' => 'required | email',
-          'identificacion' => 'required',
+          'identificacion' => 'required | max:10 | min:10',
           'password' => 'required | string | min:8 | max:64',
           'rol' => 'required | string',
         ]);

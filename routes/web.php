@@ -22,11 +22,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 
 Route::group(['middleware'=>'isAdmin'], function(){
-
+  Route::resource('users', 'UserController');
 });
 // Route::get('users', 'UserController@index')->middleware('isAdmin')->name('home');
 
-Route::resource('users', 'UserController');
+// Route::resource('users', 'UserController');
 Route::resource('sistemas', 'SistemaController');
 Route::resource('medicions', 'MedicionController');
 
