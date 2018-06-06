@@ -22,11 +22,11 @@
   </tr>
 
   <tr>
-      <td>Created At</td>
+      <td>Creado en</td>
       <td>{{ $data->created_at }}</td>
   </tr>
   <tr>
-      <td>Updated At</td>
+      <td>Actualizado en</td>
       <td>{{ $data->updated_at }}</td>
   </tr>
   </table>

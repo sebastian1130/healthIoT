@@ -15,8 +15,8 @@ class CreateMedicionsTable extends Migration
     {
         Schema::create('medicions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sensor', 10);
-            $table->float('valor', 6, 3);
+            $table->float('valorP', 6, 3);
+            $table->float('valorT', 6, 3);
             $table->time('hora');
             $table->date('fecha');
             $table->integer('sistema_id')->unsigned()->nullable();

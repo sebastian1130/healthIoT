@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Session;
+use Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserController extends Controller

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use App\sistema;
 
 
 class User extends Authenticatable
@@ -37,10 +38,10 @@ class User extends Authenticatable
     ///////////////////////
 
     public function sistemas(){
-      return $this->hasMany('App/sistema');
+      return $this->hasMany('App\sistema', 'user_id', 'id');
     }
 
-    public function isAdmin()    {
+    public function isAdmin(){
       if (($this->rol)==1){
         return true;
       }else{

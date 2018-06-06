@@ -15,12 +15,13 @@
           <h3>{{ $user->name }} {{ $user->apellidos }}</h3>
           <p>{{ $user->identificacion }}</p>
           <p>{{ $user->email }}</p>
-          <p>Rol: {{ $user->rol }}</p>
+          <p>Rol: <?php if($user->rol==1){echo "Administrador";}else if($user->rol == 2){echo "Persona";} ?></p>
         </div> <!--.data-->
         <div class="options">
           <p>
           <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary">Ver usuario</a>
           <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar usuario</a>
+          <a href="{{ route('sistemas.show', $user->id) }}" class="btn btn-primary">Ver sistemas</a>
           {!! Form::open([
               'method' => 'DELETE',
               'route' => ['users.destroy', $user->id]

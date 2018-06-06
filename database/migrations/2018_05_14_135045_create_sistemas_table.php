@@ -16,9 +16,9 @@ class CreateSistemasTable extends Migration
         Schema::create('sistemas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 20);
-            $table->string('identificacion', 10)->unique();
-            $table->string('descripcion');
-            $table->integer('prioridad');
+            $table->string('identificacion', 12)->unique();
+            $table->string('descripcion')->nullable();
+            $table->integer('prioridad')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

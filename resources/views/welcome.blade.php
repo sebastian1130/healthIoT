@@ -91,14 +91,21 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('register') }}">Registrar Usuario</a>
+
                     @auth
+                      <?php
+                         $userid = (!Auth::guest()) ? Auth::user()->id : null;
+                      ?>
                       <a href="#">Chequea tu salud</a>
+                      <a href="{{ route('sistemas.create') }}">Crea tu sistema</a>
+                      <a href="{{ route('sistemas.show', $userid) }}">Revisa tus sistemas</a>
+
                     @else
                       <a href="{{ route('login') }}">Inicia sesión</a>
+                      <a href="{{ route('register') }}">Registrar Usuario</a>
                     @endauth
 
-                    <a href="https://github.com/sebastian1130/healthIoT" target="_blank">GitHub</a>
+                    <!-- <a href="https://github.com/sebastian1130/healthIoT" target="_blank">GitHub</a> -->
                     <!-- <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>

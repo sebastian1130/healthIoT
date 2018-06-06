@@ -15,6 +15,6 @@ class SiteController extends Controller
   public function privateWelcome(Request $request){
   //  $users=User::All();
   //  return view('/adminWelcome', ['users' => $users]);
-  return view('adminPages/adminWelcome');
+    return view('adminPages/adminWelcome');
   }
 }
