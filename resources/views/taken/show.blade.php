@@ -59,7 +59,7 @@
 <div class="contenedor">
   <h2>Sistema <?php echo $sis->id;?>, <?php echo $sis->nombre?></h2>
 <hr>
-  @if($data->count() > 0)
+  @if($data)
     <h3>Datos de referencia: </h3>
     <br>
     <h4>Presión arterial: </h4>
@@ -75,12 +75,25 @@
     <p>No existen datos de referencia</p>
   @endif
   <br><hr>
+
   @if($med->count()>0)
-    <div class="graficos">
-      <h2>Tus datos de presión arterial a través del tiempo</h2>
-      <div id="curve_chart" style="width: 75%; height: 50%"></div>
-      <h2>Tus datos de temperatura corporal a través del tiempo</h2>
-      <div id="curve_chart2" style="width: 75%; height: 50%"></div>
+    <div class="graficos clearfix">
+      <div class="pressure" style="margin: 40px 0 auto 0; margin-bottom: 400px;">
+        <h2>Tus datos de presión arterial a través del tiempo</h2>
+        <div id="curve_chart" style="width: 60%; height: 50%; float: left;"></div>
+        <div class="" style="float: left; width: 22%; padding-left:5px">
+          <h4>Medidas anómalas: </h4>
+          <p>el del dia ese</p>
+        </div>
+      </div>
+        <div class="pressure" style="margin: 70px 0 auto 0; margin-bottom: 400px;">
+          <h2>Tus datos de Temperatura a través del tiempo</h2>
+          <div id="curve_chart2" style="width: 70%; height: 50%; float: left;"></div>
+          <div class="" style="float: left; width: 22%; padding-left:5px">
+            <h4>Medidas anómalas: </h4>
+            <p>el del dia ese</p>
+          </div>
+        </div>
     </div>
   @else
     <h3>Nunca has medido tus signos vitales.</h3>

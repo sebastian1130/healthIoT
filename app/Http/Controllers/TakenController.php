@@ -28,7 +28,7 @@ class TakenController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -40,6 +40,15 @@ class TakenController extends Controller
     public function store(Request $request)
     {
         //
+    }
+    public function getMeas(Request $request, $identificacion, $vPS, $vPD, $vT){
+      // $medicions = sistema::find($identificacion)->takens;
+      $sis = sistema::where('identificacion', $identificacion)->get()->first();
+      // echo var_dump($sis);
+      $input = array('valorPS'=>$vPS, 'valorPD'=>$vPD, 'valorT'=>$vT, 'sistema_id'=>$sis->id);
+      // echo $input;
+      Taken::create($input);
+      echo 200;
     }
 
     /**

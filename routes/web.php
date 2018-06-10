@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 Route::post('/addData/{id}','MedicionController@addData')->middleware('isAdmin')->name('medicions.addData');
 Route::get('/addRef/{id}','MedicionController@addRef')->middleware('isAdmin')->name('medicions.addRef');
+Route::get('/addM/{identificacion}/{vPS}/{vPD}/{vT}','TakenController@getMeas');
 
 Route::group(['middleware'=>'isAdmin'], function(){
   Route::resource('users', 'UserController');

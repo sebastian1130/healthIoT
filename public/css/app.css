@@ -71,10 +71,11 @@ div.contenedor .forma1 .form-group{
   margin: 40px auto 0 auto;
   float: left;
   width: 45%;
-}
+
 .graficos{
-  width: 125%;
+  width: 100%!important;
   margin: 40px auto 0 auto;
+
   /* text-align: center; */
 }
 .graficos h2{
