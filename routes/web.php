@@ -20,6 +20,8 @@ Route::get('adminPages/adminWelcome','SiteController@privateWelcome')->middlewar
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
+Route::post('/addData/{id}','MedicionController@addData')->middleware('isAdmin')->name('medicions.addData');
+Route::get('/addRef/{id}','MedicionController@addRef')->middleware('isAdmin')->name('medicions.addRef');
 
 Route::group(['middleware'=>'isAdmin'], function(){
   Route::resource('users', 'UserController');
@@ -29,6 +31,7 @@ Route::group(['middleware'=>'isAdmin'], function(){
 // Route::resource('users', 'UserController');
 Route::resource('sistemas', 'SistemaController');
 Route::resource('medicions', 'MedicionController');
+Route::resource('takens', 'TakenController');
 
 
 

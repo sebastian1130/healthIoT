@@ -96,7 +96,7 @@
                       <?php
                          $userid = (!Auth::guest()) ? Auth::user()->id : null;
                       ?>
-                      <a href="#">Chequea tu salud</a>
+                      
                       <a href="{{ route('sistemas.create') }}">Crea tu sistema</a>
                       <a href="{{ route('sistemas.show', $userid) }}">Revisa tus sistemas</a>
 

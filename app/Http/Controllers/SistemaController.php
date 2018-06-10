@@ -90,6 +90,7 @@ class SistemaController extends Controller
       try{
         $users = User::findOrFail($id);
         $systems = User::findOrFail($id)->sistemas;
+          // echo var_dump($systems);
         return view('sistema.show', array_merge(['list' => $users], ['system' => $systems]));
       }
       catch(ModelNotFoundException $e)

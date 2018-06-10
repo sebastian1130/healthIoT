@@ -8,8 +8,6 @@
   </div>
 @endif
 <div class="contenedor">
-
-
   <h1>Editar sistema</h1>
   <p class="lead">Modifica la información de tu sistema</p>
   <a href="{{ route('sistemas.show', $data->user_id) }}">Regresar a Sistemas.</a></p>

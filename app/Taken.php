@@ -5,11 +5,10 @@ use App\sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
-class medicion extends Model
+class Taken extends Model
 {
-    //
   protected $fillable = [
-    'valorPS', 'valorPD', 'valorT', 'sistema_id', 'ref'
+    'valorPS', 'valorPD', 'valorT', 'sistema_id',
   ];
   public function sistema(){
     return $this->belongsTo('App\sistema');
