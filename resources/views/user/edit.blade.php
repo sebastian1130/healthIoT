@@ -34,7 +34,7 @@
   </div>
   <div class="form-group">
       {!! Form::label('rol', 'Rol', ['class' => 'control-label']) !!}
-      {!! Form::select('rol', ['1' => 'Administrador', '2' => 'Persona','3' => 'Empresa', '4' => 'Médico']); !!}
+      {!! Form::select('rol', ['2' => 'Persona', '1' => 'Administrador','3' => 'Empresa', '4' => 'Médico']); !!}
   </div>
   <div class="form-group">
       {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}

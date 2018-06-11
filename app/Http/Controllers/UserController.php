@@ -49,9 +49,9 @@ class UserController extends Controller
          'password' => 'required | string | min:8 | max:64',
      ]);
      $input = $request->all();
-     User::create($input);
+     User::create(array_merge($input, ['rol' => 2]));
      Session::flash('flash_message', 'Usuario exitosamente agregado');
-     return redirect('/home');
+     return redirect('/users');
     }
 
     /**
@@ -107,7 +107,7 @@ class UserController extends Controller
           'name' => 'required | string',
           'apellidos' => 'required | nullable | string',
           'email' => 'required | email',
-          'identificacion' => 'required | max:10 | min:10',
+          'identificacion' => 'required | max:10 ',
           'password' => 'required | string | min:8 | max:64',
           'rol' => 'required | string',
         ]);

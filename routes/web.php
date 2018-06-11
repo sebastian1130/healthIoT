@@ -21,6 +21,7 @@ Route::get('adminPages/adminWelcome','SiteController@privateWelcome')->middlewar
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('isAdmin');
 Route::post('/addData/{id}','MedicionController@addData')->middleware('isAdmin')->name('medicions.addData');
+Route::get('/modRef/{id}','MedicionController@edit')->middleware('isAdmin')->name('medicions.modData');
 Route::get('/addRef/{id}','MedicionController@addRef')->middleware('isAdmin')->name('medicions.addRef');
 Route::get('/addM/{identificacion}/{vPS}/{vPD}/{vT}','TakenController@getMeas');
 

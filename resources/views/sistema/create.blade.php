@@ -19,6 +19,12 @@
       {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
       {!! Form::label('identificacion', 'Identificación', ['class' => 'control-label']) !!}
       {!! Form::text('identificacion', null, ['class' => 'form-control']) !!}
+      ¿Cuál es el objetivo principal de tu sistema?
+      <select name="prioridad">
+        <option value = "1">Solamente es para comprobar mi salud de vez en cuando</option>
+        <option value = "5">Sufro de problemas cardiacos relacionados con la presión arterial</option>
+        <option value = "3">Podría sufrir de problemas relacionados con la presión arterial</option>
+      </select>
 
 
       <!-- <select name="user_id" style = "display:none">

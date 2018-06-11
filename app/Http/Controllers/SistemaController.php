@@ -54,6 +54,7 @@ class SistemaController extends Controller
          'nombre' => 'required | string  | max:66',
          'identificacion' => 'required | string  | max:15',
          'descripcion' => 'required | string  | max:120',
+         'prioridad' => 'required',
          // 'user_id' => $userid,
      ]);
      // $input = $request->all();
@@ -139,6 +140,7 @@ class SistemaController extends Controller
          'nombre' => 'required | string  | max:66',
          'identificacion' => 'required | string  | max:15',
          'descripcion' => 'required | string  | max:120',
+         'prioridad' => 'required',
        ]);
        $input = $request->all();
        $system->fill($input)->save();

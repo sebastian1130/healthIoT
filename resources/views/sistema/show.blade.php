@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="contenedor">
-  <a href="{{ url('adminPages/adminWelcome') }}" class="btn btn-primary">Volver</a>
+
 
   <h3>{{ $list->name }} {{ $list->apellidos }}</h3>
   <p>{{ $list->identificacion }}</p>

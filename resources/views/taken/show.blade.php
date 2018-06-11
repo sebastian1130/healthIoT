@@ -80,10 +80,16 @@
     <div class="graficos clearfix">
       <div class="pressure" style="margin: 40px 0 auto 0; margin-bottom: 400px;">
         <h2>Tus datos de presión arterial a través del tiempo</h2>
-        <div id="curve_chart" style="width: 60%; height: 50%; float: left;"></div>
+        <div id="curve_chart" style="width: 70%; height: 50%; float: left;"></div>
         <div class="" style="float: left; width: 22%; padding-left:5px">
           <h4>Medidas anómalas: </h4>
-          <p>el del dia ese</p>
+          @foreach($med as $meas)
+            <?php if(($meas->valorPS>$data->valorPS+15)||($meas->valorPS<$data->valorPS-15)||($meas->valorPD>$data->valorPD+15)||($meas->valorPD<$data->valorPD-15)){?>
+              <p>
+                <?php echo $meas->valorPS . " " . $meas->valorPD . " ". $meas->created_at;?>
+              </p>
+            <?php }?>
+          @endforeach
         </div>
       </div>
         <div class="pressure" style="margin: 70px 0 auto 0; margin-bottom: 400px;">
@@ -91,7 +97,13 @@
           <div id="curve_chart2" style="width: 70%; height: 50%; float: left;"></div>
           <div class="" style="float: left; width: 22%; padding-left:5px">
             <h4>Medidas anómalas: </h4>
-            <p>el del dia ese</p>
+            @foreach($med as $meas)
+              <?php if(($meas->valorT>37.6)||($meas->valorT<36.0)){?>
+                <p>
+                  <?php echo $meas->valorT . " " . $meas->created_at;?>
+                </p>
+              <?php } ?>
+            @endforeach
           </div>
         </div>
     </div>
@@ -100,8 +112,14 @@
   @endif
 
 
-  @if(auth()->user()->rol == 1)
-  <a href="{{  url('/addRef', $sis->id) }}" class="btn btn-primary">Modificar referencia</a>
+  @if((auth()->user()->rol == 1))
+    @if($data)
+      <a href="{{  url('/modRef', $sis->id) }}" class="btn btn-primary">Modificar referencia</a>
+    @else
+      <a href="{{  url('/addRef', $sis->id) }}" class="btn btn-primary">Agregar referencia</a>
+    @endif
+
+
   @endif
 
 

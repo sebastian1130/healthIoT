@@ -92,7 +92,15 @@ class MedicionController extends Controller
      */
     public function edit($id)
     {
-        //
+      try{
+        $med=medicion::findOrFail($id);
+        return view('medicion.modRef',['sis'=>$med]);
+        }
+      catch(ModelNotFoundException $e)
+        {
+          Session::flash('flash_message',"Las medidas de referencia ($id) no pueden ser editadas");
+          return redirect()->back();
+        }
     }
 
     /**
@@ -104,7 +112,26 @@ class MedicionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try{
+        $med=medicion::findOrFail($id);
+        $this->validate($request, [
+          'valorPD' => 'required',
+          'valorPS' => 'required',
+          'valorT' => 'required',
+        ]);
+        $input = $request->all();
+        $med->fill($input)->save();
+        Session::flash('flash_message', 'Mediciones correctamente editadas');
+        $datos = sistema::findOrFail($id)->medicions->first();
+        $meas = sistema::findOrFail($id)->takens;
+        $system = sistema::findOrFail($id);
+        return view('taken.show', array_merge(['data' => $datos],['sis' => $system],['medidas' => $meas]));
+      }
+      catch(ModelNotFoundExcetion $e)
+        {
+            Session::flash('flash_message','Las medidas de referencia ($id) no pudieron ser editadas');
+            return redirect()->back();
+        }
     }
 
     /**
