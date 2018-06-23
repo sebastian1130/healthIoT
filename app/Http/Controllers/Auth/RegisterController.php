@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'email' => 'required | email| unique:users',
             'identificacion' => 'required | string | max:66 | unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'edad' => 'required | string',
         ]);
     }
 
@@ -70,6 +71,8 @@ class RegisterController extends Controller
             'apellidos' => $data['apellidos'],
             'identificacion' => $data['identificacion'],
             'password' => $data['password'],
+            'edad' => $data['edad'],
         ]);
+        Session::flash('msg', 'Usuario Registrado' );
     }
 }

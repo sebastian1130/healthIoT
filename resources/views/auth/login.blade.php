@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Session::has('flash_message'))
+  <div class="alert alert-info">
+      <a class="close" data-dismiss="alert">×</a>
+      <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+  </div>
+@endif
 <div class="container contenedor">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

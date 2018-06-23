@@ -14,6 +14,7 @@
         <div class="data">
           <h3>{{ $user->name }} {{ $user->apellidos }}</h3>
           <p>{{ $user->identificacion }}</p>
+          Edad: <p><?php echo  $user->edad ; ?></p>
           <p>{{ $user->email }}</p>
           <p>Rol: <?php if($user->rol==1){echo "Administrador";}else if($user->rol == 2){echo "Persona";} ?></p>
         </div> <!--.data-->

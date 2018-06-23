@@ -7,6 +7,12 @@
     @endforeach
   </div>
 @endif
+@if(Session::has('flash_message'))
+  <div class="alert alert-info">
+      <a class="close" data-dismiss="alert">×</a>
+      <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+  </div>
+@endif
 <div class="contenedor">
   <p class="lead">Ingresa los datos de referencia para este sistema</p>
   <hr>

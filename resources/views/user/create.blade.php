@@ -13,6 +13,12 @@
           @endforeach
       </div>
     @endif
+    @if(Session::has('flash_message'))
+      <div class="alert alert-info">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+      </div>
+  @endif
 
 
     {!! Form::open(['route' => 'users.store']) !!}
@@ -27,6 +33,10 @@
     <div class="form-group ">
       {!! Form::label('identificacion', 'Identificación', ['class' => 'control-label']) !!}
       {!! Form::text('identificacion', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group ">
+      {!! Form::label('edad', 'Tu edad', ['class' => 'control-label']) !!}
+      {!! Form::text('edad', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group ">
       {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}

@@ -47,6 +47,7 @@ class UserController extends Controller
          'email' => 'required | email| unique:users',
          'identificacion' => 'required | string | max:66 | unique:users',
          'password' => 'required | string | min:8 | max:64',
+         'edad' => 'required | integer | max:150',
      ]);
      $input = $request->all();
      User::create(array_merge($input, ['rol' => 2]));
@@ -110,6 +111,7 @@ class UserController extends Controller
           'identificacion' => 'required | max:10 ',
           'password' => 'required | string | min:8 | max:64',
           'rol' => 'required | string',
+          'edad' => 'required | integer | max:150',
         ]);
         $input = $request->all();
         $user->fill($input)->save();

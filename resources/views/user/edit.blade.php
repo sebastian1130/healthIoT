@@ -6,14 +6,21 @@
   <p class="lead">Editar este usuario.
   <a href="{{ route('users.index') }}">Regresar a todos los usuarios.</a></p>
   <hr>
-
+  <p class="lead">.</p>
+  <hr>
   @if($errors->any())
-      <div class="alert alert-danger">
-          @foreach($errors->all() as $error)
-              <p>{{ $error }}</p>
-          @endforeach
-      </div>
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
   @endif
+  @if(Session::has('flash_message'))
+    <div class="alert alert-info">
+        <a class="close" data-dismiss="alert">×</a>
+        <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+    </div>
+@endif
 
   {!! Form::model($data, [
       'method' => 'PUT',
@@ -27,6 +34,10 @@
   <div class="form-group">
       {!! Form::label('apellidos', 'Apellido', ['class' => 'control-label']) !!}
       {!! Form::text('apellidos', null, ['class' => 'form-control']) !!}
+  </div>
+  <div class="form-group ">
+    {!! Form::label('edad', 'Edad', ['class' => 'control-label']) !!}
+    {!! Form::text('edad', null, ['class' => 'form-control']) !!}
   </div>
   <div class="form-group">
       {!! Form::label('identificacion', 'Identificación', ['class' => 'control-label']) !!}

@@ -52,6 +52,21 @@
         </script>
     </head>
     <body>
+      <p class="lead">.</p>
+      <hr>
+      @if($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+      @endif
+      @if(Session::has('flash_message'))
+        <div class="alert alert-info">
+            <a class="close" data-dismiss="alert">×</a>
+            <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+        </div>
+    @endif
 
 
 
@@ -84,7 +99,31 @@
         <div class="" style="float: left; width: 22%; padding-left:5px">
           <h4>Medidas anómalas: </h4>
           @foreach($med as $meas)
-            <?php if(($meas->valorPS>$data->valorPS+15)||($meas->valorPS<$data->valorPS-15)||($meas->valorPD>$data->valorPD+15)||($meas->valorPD<$data->valorPD-15)){?>
+            <?php
+              $age = $user->edad;
+              $anomalous = 0;
+              switch(true){
+                case ($age>16 && $age<30):
+                  if($meas->valorPS<100 || $meas->valorPS>139 || $meas->valorPD<60 || $meas->valorPD>89){
+                    $anomalous = 1;
+                  }
+                  break;
+                case ($age>=30 && $age<39):
+                  if($meas->valorPS<105 || $meas->valorPS>145 || $meas->valorPD<65 || $meas->valorPD>96){
+                    $anomalous = 1;
+                  }
+                  break;
+                case ($age>=49):
+                  if($meas->valorPS<105 || $meas->valorPS>160 || $meas->valorPD<65 || $meas->valorPD>100){
+                    $anomalous = 1;
+                  }
+                  break;
+                default:
+                  $anomalous = 0;
+                  break;
+              }
+            ?>
+            <?php if($anomalous == 1){?>
               <p>
                 <?php echo $meas->valorPS . " " . $meas->valorPD . " ". $meas->created_at;?>
               </p>
@@ -98,7 +137,7 @@
           <div class="" style="float: left; width: 22%; padding-left:5px">
             <h4>Medidas anómalas: </h4>
             @foreach($med as $meas)
-              <?php if(($meas->valorT>37.6)||($meas->valorT<36.0)){?>
+              <?php if(($meas->valorT>37.5)||($meas->valorT<36.5)){?>
                 <p>
                   <?php echo $meas->valorT . " " . $meas->created_at;?>
                 </p>
@@ -118,12 +157,7 @@
     @else
       <a href="{{  url('/addRef', $sis->id) }}" class="btn btn-primary">Agregar referencia</a>
     @endif
-
-
   @endif
-
-
-
 </div>
 </body>
 </html>

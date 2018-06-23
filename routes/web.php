@@ -24,6 +24,7 @@ Route::post('/addData/{id}','MedicionController@addData')->middleware('isAdmin')
 Route::get('/modRef/{id}','MedicionController@edit')->middleware('isAdmin')->name('medicions.modData');
 Route::get('/addRef/{id}','MedicionController@addRef')->middleware('isAdmin')->name('medicions.addRef');
 Route::get('/addM/{identificacion}/{vPS}/{vPD}/{vT}','TakenController@getMeas');
+Route::get('mail/send', 'MailController@send');
 
 Route::group(['middleware'=>'isAdmin'], function(){
   Route::resource('users', 'UserController');

@@ -39,8 +39,10 @@ class MedicionController extends Controller
     //$Sistema = new sistema($input);
     //$sys->save(array($Sistema));
     medicion::create($input);
-
-    return view('/home');
+    $datos = sistema::findOrFail($id)->medicions->first();
+    $meas = sistema::findOrFail($id)->takens;
+    $system = sistema::findOrFail($id);
+    return view('taken.show', array_merge(['data' => $datos],['sis' => $system],['medidas' => $meas]));
 
   }
     /**
@@ -93,8 +95,8 @@ class MedicionController extends Controller
     public function edit($id)
     {
       try{
-        $med=medicion::findOrFail($id);
-        return view('medicion.modRef',['sis'=>$med]);
+        $med = medicion::findOrFail($id)->first();
+        return view('medicion.modRef', ['sis'=>$med]);
         }
       catch(ModelNotFoundException $e)
         {

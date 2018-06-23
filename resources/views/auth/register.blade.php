@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<p class="lead">.</p>
+<hr>
+@if($errors->any())
+  <div class="alert alert-danger">
+      @foreach($errors->all() as $error)
+          <p>{{ $error }}</p>
+      @endforeach
+  </div>
+@endif
+@if(Session::has('flash_message'))
+  <div class="alert alert-info">
+      <a class="close" data-dismiss="alert">×</a>
+      <strong>Atención!</strong> {!!Session::get('flash_message')!!}
+  </div>
+@endif
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -28,6 +43,12 @@
                              <label for="apellidos" class="col-md-4 control-label">Apellidos</label>
                             <div class="col-md-6">
                                 <input id="apellidos" type="text" class="form-control" name="apellidos" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="edad" class="col-md-4 control-label">Edad</label>
+                            <div class="col-md-6">
+                                <input id="edad" type="text" class="form-control" name="edad" >
                             </div>
                         </div>
                         <div class="form-group">

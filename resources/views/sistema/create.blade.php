@@ -1,10 +1,18 @@
 @extends('layouts.app')
 @section('content')
+<p class="lead">.</p>
+<hr>
 @if($errors->any())
   <div class="alert alert-danger">
-    @foreach($errors->all() as $error)
-      <p>{{ $error }}</p>
-    @endforeach
+      @foreach($errors->all() as $error)
+          <p>{{ $error }}</p>
+      @endforeach
+  </div>
+@endif
+@if(Session::has('flash_message'))
+  <div class="alert alert-info">
+      <a class="close" data-dismiss="alert">×</a>
+      <strong>Atención!</strong> {!!Session::get('flash_message')!!}
   </div>
 @endif
 <div class="contenedor">
